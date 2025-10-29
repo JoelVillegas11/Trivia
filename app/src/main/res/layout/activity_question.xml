@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Quién dirigió ‘Inception’?"
+        android:textColor="@color/text_white"
+        android:textSize="20sp"
+        android:layout_marginBottom="32dp"/>
+
+    <RadioGroup
+        android:id="@+id/rgOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/rbA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A) Christopher Nolan"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/button_blue"/>
+
+        <RadioButton
+            android:id="@+id/rbB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="B) Steven Spielberg"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/button_blue"/>
+
+        <RadioButton
+            android:id="@+id/rbC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="C) Quentin Tarantino"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/button_blue"/>
+
+        <RadioButton
+            android:id="@+id/rbD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="D) Martin Scorsese"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/button_blue"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGUIENTE"
+        android:backgroundTint="@color/button_blue"
+        android:textColor="@color/text_white"
+        android:enabled="false"/>
+
+</LinearLayout>
