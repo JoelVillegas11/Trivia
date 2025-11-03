@@ -2,12 +2,14 @@ package com.project6electiva.trivia;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
-import androidx.appcompat.app.AppCompatActivity;
+import android.text.InputType;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-// Importaciones de Firebase necesarias
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -15,10 +17,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-// Nombre de la clase corregido a RegisterActivity (siguiendo convenciones)
 public class register extends AppCompatActivity {
 
     private EditText etName, etEmailRegister, etPasswordRegister;
+    private TextInputLayout tilPassword;
+    private boolean isPasswordVisible = false;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -30,15 +33,30 @@ public class register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Los IDs son correctos según tu XML
         etName = findViewById(R.id.etName);
         etEmailRegister = findViewById(R.id.etEmailRegister);
         etPasswordRegister = findViewById(R.id.etPasswordRegister);
+        tilPassword = findViewById(R.id.tilPassword);
         Button btnRegister = findViewById(R.id.btnRegister);
 
+        tilPassword.setEndIconOnClickListener(v -> togglePasswordVisibility());
         btnRegister.setOnClickListener(v -> registerUser());
     }
 
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            etPasswordRegister.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            tilPassword.setEndIconDrawable(R.drawable.ic_visibility_off);
+            isPasswordVisible = false;
+        } else {
+            etPasswordRegister.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            tilPassword.setEndIconDrawable(R.drawable.ic_visibility);
+            isPasswordVisible = true;
+        }
+        etPasswordRegister.setSelection(etPasswordRegister.getText().length());
+    }
+
+    // ... resto del código igual
     private void registerUser() {
         String name = etName.getText().toString().trim();
         String email = etEmailRegister.getText().toString().trim();
@@ -57,12 +75,11 @@ public class register extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Guardar en Firestore
                         String uid = mAuth.getCurrentUser().getUid();
                         Map<String, Object> user = new HashMap<>();
                         user.put("name", name);
                         user.put("email", email);
-                        user.put("role", "user"); // Por defecto
+                        user.put("role", "user");
                         user.put("points", 0);
                         user.put("createdAt", Timestamp.now());
 

@@ -12,7 +12,12 @@
           "package_name": "com.project6electiva.trivia"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1027033959211-nijknvr77kfj55b4a129pdr5o7hslbv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBvCrN2ef1TtRn4LNF8-CSdwCVcliepzV8"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027033959211-nijknvr77kfj55b4a129pdr5o7hslbv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

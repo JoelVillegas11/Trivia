@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_dark"
@@ -7,36 +8,60 @@
     android:orientation="vertical"
     android:padding="32dp">
 
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Logo de la aplicación"
+        android:src="@drawable/logologin" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trivia Interactiva"
-        android:textColor="@color/text_white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp"/>
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Trivia Interactiva"
+    android:textColor="@color/text_white"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:layout_marginBottom="40dp"/>
 
-    <EditText
-        android:id="@+id/etEmailRegister"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
-        android:textColor="@color/text_white"
-        android:textColorHint="#AAAAAA"
-        android:inputType="textEmailAddress"
-        android:backgroundTint="@color/text_white"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        app:boxStrokeColor="@color/text_white"
+        app:hintTextColor="@color/text_white"
+        android:textColorHint="#AAAAAA">
 
-    <EditText
-        android:id="@+id/etPasswordRegister"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:textColor="@color/text_white"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:textColor="@color/text_white"
+        android:layout_marginBottom="24dp"
+        app:boxStrokeColor="@color/text_white"
+        app:hintTextColor="@color/text_white"
         android:textColorHint="#AAAAAA"
-        android:inputType="textPassword"
-        android:backgroundTint="@color/text_white"
-        android:layout_marginBottom="24dp"/>
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_visibility_off"
+        app:endIconContentDescription="Mostrar/ocultar contraseña">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPasswordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:textColor="@color/text_white"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
@@ -46,6 +71,14 @@
         android:backgroundTint="@color/button_orange"
         android:textColor="@color/text_white"
         android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnGoogleLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar con Google"
+        android:backgroundTint="@color/google_red" android:textColor="@color/text_white"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:id="@+id/tvRegister"

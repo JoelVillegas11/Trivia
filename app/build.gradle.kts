@@ -20,7 +20,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            postprocessing {
+                // Habilitar la reducción de recursos (shrinkResources)
+                isRemoveUnusedResources = true
+
+                // Otras opciones de ProGuard si las necesitas
+                // isOptimizeCode = true
+                // isCompressAssets = true
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -59,6 +67,11 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")       // <-- Sin versión
     implementation("com.google.firebase:firebase-firestore")  // <-- Sin versión
 
+    //Google
+    implementation("androidx.credentials:credentials:1.6.0-beta03")
+    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-beta03")
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
     // Opcional: para imágenes si usas Storage
     // implementation("com.google.firebase:firebase-storage")
 }

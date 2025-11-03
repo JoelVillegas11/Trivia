@@ -6,4 +6,6 @@
     <color name="button_orange">#D2691E</color> <!-- Botón "Iniciar sesión" -->
     <color name="button_blue">#2D72FF</color>   <!-- Botón "Jugar", "Siguiente" -->
     <color name="text_white">#FFFFFF</color>    <!-- Texto blanco -->
+
+    <color name="google_red">#DB4437</color>
 </resources>
