@@ -5,7 +5,7 @@
     android:background="@color/background_dark"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="32dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvScore"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="8"
         android:textColor="@color/text_white"
-        android:textSize="64sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:text="¡Felicidades! Respondiste 8 de 10 preguntas correctamente."
         android:textColor="@color/text_white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:gravity="center"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnBackToMenu"
@@ -33,6 +33,63 @@
         android:layout_height="wrap_content"
         android:text="Menú Principal"
         android:backgroundTint="@color/button_blue"
-        android:textColor="@color/text_white"/>
+        android:textColor="@color/text_white"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Tabla de resultados -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:id="@+id/tableResults"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="0,1,2"
+                android:background="@android:color/darker_gray">
+
+                <!-- Header -->
+                <TableRow
+                    android:background="#152A40"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:text="Pregunta"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Estado"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Respuesta Correcta"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:padding="8dp"/>
+                </TableRow>
+                <!-- Los datos se añadirán aquí programáticamente -->
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
 
 </LinearLayout>

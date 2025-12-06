@@ -6,6 +6,34 @@
     android:orientation="vertical"
     android:padding="24dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13s"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical" />
+
+        <ProgressBar
+            android:id="@+id/progressTimer"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:max="13"
+            android:progress="13"
+            android:progressTint="@color/button_blue" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tvQuestion"
         android:layout_width="match_parent"
@@ -54,13 +82,15 @@
             android:buttonTint="@color/button_blue"/>
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
+    <!-- TextView para mostrar progreso: Pregunta X/Y -->
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGUIENTE"
-        android:backgroundTint="@color/button_blue"
+        android:text="Pregunta 1/10"
         android:textColor="@color/text_white"
-        android:enabled="false"/>
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

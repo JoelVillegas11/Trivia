@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestión de Pregunta"
+            android:textColor="@color/text_white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/etQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enunciado de la pregunta"
+            android:textColor="@color/text_white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/text_white"
+            android:layout_marginBottom="16dp"/>
+
+        <Spinner
+            android:id="@+id/spCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <Spinner
+            android:id="@+id/spDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/etOptionA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/text_white"
+            android:hint="Opción A                              (respuesta correcta)"
+            android:textColor="@color/text_white"
+            android:textColorHint="#AAAAAA" />
+
+        <EditText
+            android:id="@+id/etOptionB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Opción B"
+            android:textColor="@color/text_white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/text_white"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etOptionC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Opción C"
+            android:textColor="@color/text_white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/text_white"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etOptionD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Opción D"
+            android:textColor="@color/text_white"
+            android:textColorHint="#AAAAAA"
+            android:backgroundTint="@color/text_white"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@color/text_white"/>
+
+    </LinearLayout>
+</ScrollView>

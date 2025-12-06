@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark"
-    android:orientation="vertical">
+    android:background="@color/background_dark">
 
     <LinearLayout
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:paddingTop="16dp"         android:paddingBottom="16dp"      android:background="#152A40"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="#152A40"
         android:gravity="center_vertical"
-        android:layout_marginTop="24dp"> <ImageView
-        android:id="@+id/ivEmblema"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/emblema1"
-        android:contentDescription="Emblema de perfil" />
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/ivEmblema"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/emblema1"
+            android:contentDescription="Emblema de perfil" />
 
         <TextView
             android:id="@+id/tvNombreUsuario"
@@ -29,6 +33,17 @@
             android:text="Usuario"
             android:textColor="@color/text_white"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTotalScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:text="0 pts"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnMenu"
@@ -41,37 +56,52 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="32dp"
-        android:paddingBottom="8dp"> <ImageView
+    <ImageButton
+        android:id="@+id/btnRetos"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Ver retos"
+        android:src="@drawable/reto"
+        android:scaleType="fitCenter"
+        android:tint="@null"
+        android:layout_below="@id/headerContainer"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="130dp"/> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/headerContainer"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:paddingBottom="8dp"
+    android:layout_marginTop="32dp">
+
+    <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="Logo de la aplicación"
         android:src="@drawable/logomain" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="TRIVIA INTERACTIVA"
-            android:textColor="@color/text_white"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="TRIVIA INTERACTIVA"
+        android:textColor="@color/text_white"
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnJugar"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/button_blue"
-            android:text="JUGAR"
-            android:textColor="@color/text_white" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnJugar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_blue"
+        android:text="JUGAR"
+        android:textColor="@color/text_white" />
 
 </LinearLayout>
+
+</RelativeLayout>

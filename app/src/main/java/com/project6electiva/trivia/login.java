@@ -1,4 +1,4 @@
-// login.java (completo y actualizado)
+// login.java
 package com.project6electiva.trivia;
 
 import android.content.Intent;
@@ -47,9 +47,8 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Configurar Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id)) // ¡Importante!
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -58,7 +57,7 @@ public class login extends AppCompatActivity {
         etPassword = findViewById(R.id.etPasswordRegister);
         tilPassword = findViewById(R.id.tilPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnGoogleLogin = findViewById(R.id.btnGoogleLogin); // Nuevo botón
+        Button btnGoogleLogin = findViewById(R.id.btnGoogleLogin);
         TextView tvRegister = findViewById(R.id.tvRegister);
 
         tilPassword.setEndIconOnClickListener(v -> togglePasswordVisibility());
@@ -101,7 +100,6 @@ public class login extends AppCompatActivity {
                 });
     }
 
-    // === GOOGLE SIGN-IN ===
     private void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -137,7 +135,6 @@ public class login extends AppCompatActivity {
                 });
     }
 
-    // === CREAR PERFIL EN FIRESTORE SI NO EXISTE ===
     private void checkOrCreateUserProfile(FirebaseUser firebaseUser) {
         if (firebaseUser == null) return;
 
@@ -145,23 +142,27 @@ public class login extends AppCompatActivity {
         String name = firebaseUser.getDisplayName();
         String email = firebaseUser.getEmail();
 
-        // ✅ Crear una variable final para usar en la lambda
-        String finalName;
-        if (name == null || name.isEmpty()) {
-            finalName = (email != null && email.contains("@")) ? email.split("@")[0] : "Usuario";
-        } else {
-            finalName = name;
-        }
+        String finalName = (name == null || name.isEmpty()) ?
+                (email != null ? email.split("@")[0] : "Usuario") : name;
 
         db.collection("users").document(uid)
                 .get()
                 .addOnSuccessListener(doc -> {
                     if (doc.exists()) {
-                        startActivity(new Intent(login.this, MainActivity.class));
+                        String role = doc.getString("role");
+                        Intent intent;
+                        if ("admin".equals(role)) {
+                            intent = new Intent(login.this, AdminDashboardActivity.class);
+                        } else if ("moderator".equals(role)) {
+                            intent = new Intent(login.this, ModeratorDashboardActivity.class);
+                        } else {
+                            intent = new Intent(login.this, MainActivity.class);
+                        }
+                        startActivity(intent);
                         finish();
                     } else {
                         Map<String, Object> user = new HashMap<>();
-                        user.put("name", finalName); // ✅ Ahora es final/effectively final
+                        user.put("name", finalName);
                         user.put("email", email);
                         user.put("role", "user");
                         user.put("points", 0);

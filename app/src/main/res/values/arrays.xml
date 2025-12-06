@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories_array">
+        <item>movies</item>
+        <item>music</item>
+        <item>science</item>
+        <item>sports</item>
+    </string-array>
+
+    <string-array name="difficulty_array">
+        <item>facil</item>
+        <item>normal</item>
+        <item>dificil</item>
+    </string-array>
+
+    <string-array name="challenge_types">
+        <item>consecutivePerfectScores</item>
+        <item>totalGamesPlayed</item>
+        <item>firstPerfectHard</item>
+    </string-array>
+
+    <string-array name="user_roles">
+        <item>user</item>
+        <item>moderator</item>
+        <item>admin</item>
+    </string-array>
+</resources>
